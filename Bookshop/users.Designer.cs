@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(users));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label6 = new Label();
             label7 = new Label();
             label9 = new Label();
@@ -266,8 +267,17 @@
             // 
             // UserDGV
             // 
+            UserDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             UserDGV.BackgroundColor = Color.White;
             UserDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            UserDGV.DefaultCellStyle = dataGridViewCellStyle1;
             UserDGV.Location = new Point(3, 291);
             UserDGV.Name = "UserDGV";
             UserDGV.Size = new Size(682, 194);
@@ -471,6 +481,7 @@
             Name = "users";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "users";
+            Load += users_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();

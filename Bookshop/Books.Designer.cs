@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Books));
             panel2 = new Panel();
             RefreshBtn = new Button();
@@ -147,8 +148,17 @@
             // 
             // BookDGV
             // 
+            BookDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             BookDGV.BackgroundColor = Color.White;
             BookDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            BookDGV.DefaultCellStyle = dataGridViewCellStyle1;
             BookDGV.Location = new Point(3, 296);
             BookDGV.Name = "BookDGV";
             BookDGV.Size = new Size(682, 194);

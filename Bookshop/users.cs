@@ -18,6 +18,8 @@ namespace Bookshop
         {
             InitializeComponent();
             populate();
+            
+
         }
         SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-TIKOGBR\SQLEXPRESS;Initial Catalog=BookShopDb;Integrated Security=True;Pooling=False;Encrypt=True;TrustServerCertificate=True;");
         private void label12_Click(object sender, EventArgs e)
@@ -54,7 +56,7 @@ namespace Bookshop
                     string query = "insert into UserTbl values ('" + UnameTb.Text + "','" + PhoneTb.Text + "','" + AddTb.Text + "','" + PassTb.Text + "')";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Book Saved Successfully");
+                    MessageBox.Show("User Saved Successfully");
                     Con.Close();
                     populate();
                     Reset();
@@ -93,7 +95,7 @@ namespace Bookshop
                     string query = "delete from UserTbl where UId = " + key + ";";
                     SqlCommand cmd = new SqlCommand(query, Con);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Book Deleted Successfully");
+                    MessageBox.Show("User Deleted Successfully");
                     Con.Close();
                     populate();
                     Reset();
@@ -206,6 +208,15 @@ namespace Bookshop
         private void label8_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void users_Load(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in UserDGV.Rows)
+            {
+                row.DefaultCellStyle.ForeColor = Color.Black;
+            }
+
         }
     }
 }

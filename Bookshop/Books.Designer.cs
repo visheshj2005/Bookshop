@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Books));
             panel2 = new Panel();
+            button1 = new Button();
             RefreshBtn = new Button();
             CatCbSearchCb = new ComboBox();
             label4 = new Label();
@@ -84,6 +86,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(RefreshBtn);
             panel2.Controls.Add(CatCbSearchCb);
             panel2.Controls.Add(label4);
@@ -110,6 +113,18 @@
             panel2.Size = new Size(688, 541);
             panel2.TabIndex = 3;
             panel2.Paint += panel2_Paint;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.White;
+            button1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(46, 229);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 45);
+            button1.TabIndex = 23;
+            button1.Text = "QR Code Scan";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // RefreshBtn
             // 
@@ -147,8 +162,17 @@
             // 
             // BookDGV
             // 
+            BookDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             BookDGV.BackgroundColor = Color.White;
             BookDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            BookDGV.DefaultCellStyle = dataGridViewCellStyle1;
             BookDGV.Location = new Point(3, 296);
             BookDGV.Name = "BookDGV";
             BookDGV.Size = new Size(682, 194);
@@ -336,6 +360,7 @@
             label1.Size = new Size(153, 33);
             label1.TabIndex = 1;
             label1.Text = "Book Shop";
+            label1.Click += label1_Click;
             // 
             // panel1
             // 
@@ -578,5 +603,6 @@
         private ComboBox CatCbSearchCb;
         private Label label4;
         private DataGridView BookDGV;
+        private Button button1;
     }
 }

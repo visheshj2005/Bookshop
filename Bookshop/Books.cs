@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace Bookshop
 {
     public partial class Books : Form
@@ -242,5 +244,90 @@ namespace Bookshop
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reset();
+            // Path to your Python executable and script
+            string pythonPath = @"C:\Users\vishe\AppData\Local\Programs\Python\Python312\python.exe";
+            string scriptPath = @"G:\My Drive\Programming Backup\Python tutorials course\Python Projects\Scan QR Code\scan1.py";
+            string outputFilePath = @"G:\My Drive\Programming Backup\Python tutorials course\Python Projects\Scan QR Code\output.txt";
+
+            try
+            {
+                // Step 1: Configure process to run the Python script
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    FileName = pythonPath,
+                    Arguments = "\"" + scriptPath + "\"", // Add quotes around the script path
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = false // Allow scanner window
+                };
+
+                // Start the Python process
+                using (Process process = Process.Start(psi))
+                {
+                    process.WaitForExit();
+
+                    // Optional: Log Python script output or errors
+                    string output = process.StandardOutput.ReadToEnd();
+                    string error = process.StandardError.ReadToEnd();
+
+                    if (!string.IsNullOrEmpty(output))
+                    {
+                        System.Diagnostics.Debug.WriteLine("Python Output: " + output);
+                    }
+                    if (!string.IsNullOrEmpty(error))
+                    {
+                        System.Diagnostics.Debug.WriteLine("Python Error: " + error);
+                    }
+                }
+
+                // Step 2: Introduce a small delay before reading the file to ensure it has been written
+                System.Threading.Thread.Sleep(500); // Wait for 500ms
+
+                // Step 3: Check if output.txt was updated
+                if (File.Exists(outputFilePath))
+                {
+                    string[] lines = File.ReadAllLines(outputFilePath);
+                    System.Diagnostics.Debug.WriteLine("Output file content: " + string.Join(", ", lines)); // Debug output
+
+                    // Check if file contains two lines with valid data
+                    if (lines.Length == 5 && !string.IsNullOrWhiteSpace(lines[0]) && !string.IsNullOrWhiteSpace(lines[1]) && !string.IsNullOrWhiteSpace(lines[2]) && !string.IsNullOrWhiteSpace(lines[3]) && !string.IsNullOrWhiteSpace(lines[4]))
+                    {
+                        BTitleTb.Text = lines[0]; // Name
+                        Bauthtb.Text = lines[1];
+                        QtyTb.Text = lines[2];
+                        Price.Text = lines[3];// Age
+                        BCatTb.SelectedIndex = Convert.ToInt32(lines[4])-1;
+                    }
+                    else
+                    {
+                        BTitleTb.Text = "Invalid QR code!";
+                        Bauthtb.Text = "";
+                    }
+                }
+                else
+                {
+                    BTitleTb.Text = "Output file not found!";
+                    Bauthtb.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or display the exception
+                System.Diagnostics.Debug.WriteLine("Exception: " + ex.Message);
+                BTitleTb.Text = "Error occurred!";
+                Bauthtb.Text = "";
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

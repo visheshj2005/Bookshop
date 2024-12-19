@@ -247,6 +247,7 @@ namespace Bookshop
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // New comment Added
             Reset();
             // Path to your Python executable and script
             string pythonPath = @"C:\Users\vishe\AppData\Local\Programs\Python\Python312\python.exe";

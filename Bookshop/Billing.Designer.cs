@@ -54,16 +54,16 @@
             BookDGV = new DataGridView();
             label9 = new Label();
             BillDGV = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
             label6 = new Label();
             label7 = new Label();
             PriceTb = new TextBox();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel6.SuspendLayout();
@@ -360,42 +360,12 @@
             // 
             BillDGV.BackgroundColor = Color.White;
             BillDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            BillDGV.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
+            BillDGV.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4, Column3, Column5 });
             BillDGV.Location = new Point(316, 94);
             BillDGV.Name = "BillDGV";
             BillDGV.Size = new Size(390, 205);
             BillDGV.TabIndex = 27;
             BillDGV.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "ID";
-            Column1.Name = "Column1";
-            Column1.Width = 60;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Books";
-            Column2.Name = "Column2";
-            Column2.Width = 80;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Price";
-            Column3.Name = "Column3";
-            Column3.Width = 80;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Qty";
-            Column4.Name = "Column4";
-            Column4.Width = 40;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Total";
-            Column5.Name = "Column5";
-            Column5.Width = 90;
             // 
             // label6
             // 
@@ -444,6 +414,36 @@
             printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "ID";
+            Column1.Name = "Column1";
+            Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Books";
+            Column2.Name = "Column2";
+            Column2.Width = 80;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Qty";
+            Column4.Name = "Column4";
+            Column4.Width = 40;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Price";
+            Column3.Name = "Column3";
+            Column3.Width = 80;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Total";
+            Column5.Name = "Column5";
+            Column5.Width = 90;
             // 
             // Billing
             // 
@@ -504,11 +504,6 @@
         private TextBox PriceTb;
         private DataGridView BillDGV;
         private Label label9;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
         private DataGridView BookDGV;
         private TextBox Client;
         private TextBox Qty;
@@ -516,5 +511,10 @@
         private PrintPreviewDialog printPreviewDialog1;
         private Label UserNameLbl;
         private PictureBox pictureBox2;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column5;
     }
 }

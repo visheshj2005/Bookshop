@@ -11,8 +11,8 @@ namespace Bookshop
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Books());
-            Application.Run(new Books());
+            Application.Run(new Splash());
+            Application.Run(new Splash());
         }
     }
 }
